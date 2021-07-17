@@ -7,7 +7,6 @@ class CardDeck {
 
     generateCards(suits, ranks) {
         let cards = [];
-        let key = 0;
 
         for (let i = 0; i < suits.length; i++) {
             const suit = suits[i];
@@ -17,9 +16,7 @@ class CardDeck {
                 const card = {
                     suit,
                     rank,
-                    key,
                 };
-                key++;
                 cards.push(card);
             }
         }

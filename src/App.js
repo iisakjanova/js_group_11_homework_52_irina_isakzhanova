@@ -5,7 +5,7 @@ import CardDeck from "./CardDeck";
 class App extends Component {
     constructor(props) {
         super(props);
-        this.cardDesk = new CardDeck();
+        this.cardDeck = new CardDeck();
     }
 
     state = {
@@ -13,8 +13,17 @@ class App extends Component {
     };
 
     getCards = () => {
-        const cards = this.cardDesk.getCards(5);
+        const cards = this.cardDeck.getCards(5);
         this.setState({cards: cards});
+    }
+
+    getNewCardDeck() {
+        this.cardDeck = new CardDeck();
+    }
+
+    startNewGame = () => {
+        this.getNewCardDeck();
+        this.getCards();
     }
 
     render() {
@@ -22,10 +31,11 @@ class App extends Component {
             <div className="App">
                 <div>
                     <button onClick={this.getCards}>Get 5 cards</button>
+                    <button onClick={this.startNewGame}>Get new card deck</button>
                 </div>
                 <div className="playingCards">
                     {this.state.cards.map(card => {
-                        return <Card suit={card.suit} rank={card.rank} key={card.key}/>
+                        return <Card suit={card.suit} rank={card.rank} key={`${card.suit}-${card.rank}`}/>
                     })}
                 </div>
             </div>
