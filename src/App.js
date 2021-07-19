@@ -1,6 +1,7 @@
 import {Component} from "react";
 import Card from "./components/Card/Card";
 import CardDeck from "./CardDeck";
+import PokerHand from "./PokerHand";
 
 class App extends Component {
     constructor(props) {
@@ -26,6 +27,11 @@ class App extends Component {
         this.getCards();
     }
 
+    getResult() {
+        const pokerHand = new PokerHand(this.state.cards);
+        return pokerHand.getOutcome();
+    }
+
     render() {
         return (
             <div className="App">
@@ -38,6 +44,7 @@ class App extends Component {
                         return <Card suit={card.suit} rank={card.rank} key={`${card.suit}-${card.rank}`}/>
                     })}
                 </div>
+                <p>Result: {this.getResult(this.state.cards)}</p>
             </div>
         );
     }
