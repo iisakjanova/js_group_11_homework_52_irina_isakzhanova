@@ -2,6 +2,7 @@ import {Component} from "react";
 import Card from "./components/Card/Card";
 import CardDeck from "./CardDeck";
 import PokerHand from "./PokerHand";
+import "./App.css";
 
 class App extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <div>
+                <div className="btn-wrapper">
                     <button onClick={this.getCards}>Get 5 cards</button>
                     <button onClick={this.startNewGame}>Get new card deck</button>
                 </div>
@@ -44,7 +45,7 @@ class App extends Component {
                         return <Card suit={card.suit} rank={card.rank} key={`${card.suit}-${card.rank}`}/>
                     })}
                 </div>
-                <p>Result: {this.getResult(this.state.cards)}</p>
+                <p className="outcome">Outcome: <b>{this.getResult(this.state.cards)}</b></p>
             </div>
         );
     }

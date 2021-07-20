@@ -33,6 +33,7 @@ class CardDeck {
         let cards = [];
 
         if (this.cards.length >= quantity) {
+
             for (let i = 0; i < quantity; i++) {
                 const cardArray = this.getCard();
                 cards = [...cards, ...cardArray];

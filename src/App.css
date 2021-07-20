@@ -1,0 +1,18 @@
+.App {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 500px;
+}
+
+.btn-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn-wrapper button {
+    margin-right: 10px;
+}
+
+.outcome {
+    text-align: center;
+}
